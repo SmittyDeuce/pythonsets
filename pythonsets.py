@@ -10,8 +10,22 @@
 # Whether there are any destinations that neither airline shares.
 # Example Code:
 
-# our_routes = {"LAX", "JFK", "CDG", "DXB"}
-# competitor_routes = {"JFK", "CDG", "LHR", "BKK"}
+our_routes = {"LAX", "JFK", "CDG", "DXB"}
+competitor_routes = {"JFK", "CDG", "LHR", "BKK"}
+
+def routeComparison(route1, route2):
+    sameFlights = our_routes.intersection(competitor_routes)
+    print(f"1: The destinations that both fly to are {sameFlights}")
+
+    uniqueToUs = our_routes.difference(competitor_routes)
+    print(f"2: The destinations that are unique to us are {uniqueToUs}")
+
+    dontShare = our_routes.symmetric_difference(competitor_routes) 
+    # dontShare = our_routes ^ competitor_routes => means the same as above
+    print(f"3: The destinations that neither of us share are {dontShare}")
+
+routeComparison(our_routes, competitor_routes)
+
 # 2. Set Operations in Data Analysis
 # Objective:
 # The aim of this assignment is to enhance your skills in using Python sets for data analysis tasks. You will apply various set operations to handle real-world data scenarios, focusing on their practical application and efficiency.
